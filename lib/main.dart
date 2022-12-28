@@ -1,3 +1,5 @@
+import 'package:foody_app/components/navigation_bar.dart';
+import 'package:foody_app/landing_screen.dart';
 import 'package:foody_app/ui/cart/cart_view_model.dart';
 
 import 'package:foody_app/ui/member/login/login_screen.dart';
@@ -22,7 +24,13 @@ class MyApp extends StatelessWidget {
       child: Builder(
         builder: (BuildContext context) {
           return MaterialApp(
-            title: 'Flutter Demo',
+            initialRoute: '/',
+            routes: <String, WidgetBuilder>{
+              '/': (context) => const LandingScreen(),
+              '/login': (context) => const LoginScreen(),
+              '/home': (context) => const NavigationBarDisplay(),
+            },
+            title: 'Foody',
             debugShowCheckedModeBanner: false,
             theme: ThemeData(
               appBarTheme: const AppBarTheme(
@@ -58,7 +66,7 @@ class MyApp extends StatelessWidget {
               ),
             ),
             // home: const ChangePassword(),
-            home: const LoginScreen(),
+            // home: const LoginScreen(),
           );
         },
       ),

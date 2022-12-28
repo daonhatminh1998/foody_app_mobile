@@ -20,7 +20,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
         body: SingleChildScrollView(
       padding: const EdgeInsets.only(bottom: kBottomNavigationBarHeight),
       child: Container(
-        padding: const EdgeInsets.all(16),
         alignment: Alignment.center,
         child: Column(
           children: [
@@ -30,22 +29,33 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
               radius: MediaQuery.of(context).size.width * 0.25,
             ),
-            const SizedBox(
-              height: 16,
-            ),
+            const SizedBox(height: 16),
             Text(
               AppVariables.userInfo!.fullName,
               style: const TextStyle(fontSize: 24),
-            ),
-            const SizedBox(
-              height: 16,
             ),
             Text(
               AppVariables.userInfo!.email,
               style: const TextStyle(fontSize: 20),
             ),
-            const SizedBox(
-              height: 16,
+            const SizedBox(height: 20),
+            InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const ChangeInfoScreen()),
+                );
+              },
+              child: const Card(
+                child: ListTile(
+                  leading: Icon(
+                    Icons.people_alt_outlined,
+                    color: Color.fromARGB(255, 107, 148, 72),
+                  ),
+                  title: Text('Change User Info'),
+                ),
+              ),
             ),
             InkWell(
               onTap: () {
@@ -55,23 +65,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       builder: (context) => const ChangePassword()),
                 );
               },
-              child: const Text('Change Password'),
-            ),
-            const SizedBox(
-              height: 16,
-            ),
-            InkWell(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const ChangeInfoScreen()),
-                );
-              },
-              child: const Text('Change User Info'),
-            ),
-            const SizedBox(
-              height: 16,
+              child: const Card(
+                child: ListTile(
+                    leading: Icon(
+                      Icons.password_outlined,
+                      color: Color.fromARGB(255, 107, 148, 72),
+                    ),
+                    title: Text('Change Password')),
+              ),
             ),
             InkWell(
               onTap: () {
@@ -81,10 +82,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       builder: (context) => const ReceiverScreen()),
                 );
               },
-              child: const Text('Receier'),
-            ),
-            const SizedBox(
-              height: 16,
+              child: const Card(
+                child: ListTile(
+                  leading: Icon(
+                    Icons.receipt,
+                    color: Color.fromARGB(255, 107, 148, 72),
+                  ),
+                  title: Text('Receier'),
+                ),
+              ),
             ),
             InkWell(
               onTap: () {
@@ -94,14 +100,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       builder: (context) => const OrderHistoryScreen()),
                 );
               },
-              child: const Text('Order History'),
-            ),
-            const SizedBox(
-              height: 16,
+              child: const Card(
+                child: ListTile(
+                  leading: Icon(
+                    Icons.history_outlined,
+                    color: Color.fromARGB(255, 107, 148, 72),
+                  ),
+                  title: Text('Order History'),
+                ),
+              ),
             ),
             InkWell(
               onTap: () {
-                // AppVariables.userInfo;
                 Navigator.pushAndRemoveUntil(
                     context,
                     MaterialPageRoute(

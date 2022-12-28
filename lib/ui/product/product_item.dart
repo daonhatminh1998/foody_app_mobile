@@ -3,7 +3,7 @@ import 'package:foody_app/ui/cart/cart_view_model.dart';
 import 'package:foody_app/model/product/product.dart';
 import 'package:foody_app/model/product/product_detail.dart';
 import 'package:foody_app/ui/product_detail/product_detail_view_model.dart';
-import 'package:foody_app/ultils/product_model_DAO.dart';
+import 'package:foody_app/db/product_model_DAO.dart';
 import 'package:provider/provider.dart';
 
 class ProductItem extends StatefulWidget {

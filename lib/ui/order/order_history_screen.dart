@@ -35,6 +35,7 @@ class _OrderHistoryScreenState extends State<OrderHistoryScreen> {
   Widget _listOrder() => ScopedModelDescendant<OrderViewModel>(
           builder: (BuildContext context, Widget? child, OrderViewModel model) {
         _orderViewModel.updateList();
+
         return Column(
           children: [
             Expanded(

@@ -28,12 +28,17 @@ class LoginScreenState extends State<LoginScreen> {
 
   void _doLogin(var context, LoginViewModel model) async {
     print("doLogin (screen)");
-    final curState = _formKey.currentState!;
-    curState.save();
-    if (curState.validate()) {
-      print(curState.value);
+    _formKey.currentState!.save();
+    if (_formKey.currentState!.validate()) {
+      showDialog(
+          context: context,
+          builder: (context) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          });
 
-      final formValues = curState.value;
+      final formValues = _formKey.currentState!.value;
       final username = formValues['username'].toString();
       final password = formValues['password'].toString();
       final request = await model.login(username, password);
@@ -52,6 +57,7 @@ class LoginScreenState extends State<LoginScreen> {
                 builder: (context) => const NavigationBarDisplay()),
             (route) => false);
       } else {
+        Navigator.of(context).pop();
         ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(content: Text("Wrong username or password!!!")));
       }

@@ -15,8 +15,6 @@ class CartModel with ChangeNotifier {
   List<ProductDetail> get cart => _cart;
 
   Future<List<ProductDetail>> getData() async {
-    //get data from api
-    //  _cart =
     return _cart;
   }
 

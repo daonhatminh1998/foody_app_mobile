@@ -22,8 +22,6 @@ class OrderScreen extends StatefulWidget {
 class _OrderScreenState extends State<OrderScreen> {
   final _orderViewModel = OrderViewModel();
   final _receiverViewModel = ReceiverViewModel();
-  // final _cartViewModel = CartViewModel();
-  // final _model = ProductDetailViewModel();
 
   Future<void> order(var context, OrderViewModel model) async {
     print("Order (screen)");
